@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            padding: 30px 50px;
+            max-width: 600px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #16a085;
+            font-size: 22px;
+            margin: 15px 0;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+        .contact {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+            font-weight: bold;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #3498db;
+            padding: 10px 20px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classification Result</h1>
+        <h2>Department: {{ topic }}</h2>
+        <p><strong>Category ID:</strong> {{ prediction }}</p>
+        
+        <!-- General contact details -->
+        <div class="contact">
+            {% if topic == "Theft/Dispute" %}
+                For assistance with theft or disputes, please contact the **Theft/Dispute Reporting Helpdesk**.
+            {% elif topic == "Credit Card Related Services" %}
+                For credit card-related queries, please reach out to the **Credit Card / Debit Card Services Support Center**.
+            {% elif topic == "Mortgage and Loans Services" %}
+                For any issues related to mortgages or loans, please contact the **Loans and Mortgages Assistance Desk**.
+            {% elif topic == "Bank Account Services" %}
+                For bank account service concerns, please get in touch with the **Bank Account Services Department**.
+            {% elif topic == "Others" %}
+                For all other concerns, reach out to the **General Support Team**.
+            {% endif %}
+        </div>
+
+        <a href="/">Another query</a>
+    </div>
+</body>
+</html>
